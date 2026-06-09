@@ -1,0 +1,29 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.hero {
+    width: 100%;
+    .content {
+        aspect-ratio: 500 / 730;
+        background: url('../../assets/images/hero_bg.webp') no-repeat center / contain;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        perspective: 1000px;
+        .logo {
+            width: 100%;
+            max-width: 254px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .content {
+            .logo {
+                max-width: calc((254 / 500) * 100vw);
+            }
+        }
+    }
+}

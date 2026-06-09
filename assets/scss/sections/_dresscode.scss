@@ -1,0 +1,54 @@
+
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.dresscode {
+    width: 100%;
+    aspect-ratio: 500 / 350;
+    .content {
+        width: 100%;
+        perspective: 1000px;
+        h2 {
+            font-family: $font-UVNKeChuyen3;
+            font-size: 52px;
+            font-weight: 300;
+            margin-top: 8%;
+        }
+        .color-palette {
+            margin: 5% 0 3%;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            gap: 2%;
+
+            .color-circle {
+                max-width: 35px;
+                width: 100%;
+                aspect-ratio: 1;
+                border-radius: 50%;
+            }
+        }
+
+        .top-img, .bottom-img {
+            img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    @media (max-width: 500px) {
+        .content {
+            h2 {
+                font-size: calc((52 / 500) * 100vw);
+            }
+           
+            .color-palette {
+                .color-circle {
+                    max-width: calc((35 / 500) * 100vw);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,244 @@
+
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.invite {
+    width: 100%;
+    background: url('../../assets/images/flowers_bg.png') no-repeat, url('../../assets/images/flower_bg_bottom_bg.png') no-repeat;
+    background-size: 100% auto, 100% auto;
+    background-position: center 12%, bottom;
+    .content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        font-family: $font-gotham;
+
+        .save-the-date {
+            font-family: $font-UVNKeChuyen3;
+            font-size: 44px;
+            font-weight: 300;
+            margin-top: 6%;
+            margin-bottom: 4%;
+        }
+        .image-tulip {  
+            max-width: 196px;
+            width: 100%;
+            margin-bottom: 5%;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .invitation-text {
+            font-family: $font-lora;
+            font-size: 17px;
+            margin-bottom: 8%;
+        }
+
+        .names {
+            position: relative;
+            margin-bottom: 8%;
+
+            .name {
+                font-family: $font-BlushingRose;
+                font-size: 38px;
+
+                &.husband {
+                    margin-bottom: 10%;
+                }
+            }
+            .ampersand {
+                width: 100%;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: -10;
+                img {
+                    max-width: 60px;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+        .subtitle {
+            font-family: $font-lora;
+            font-size: 17px;
+            margin-bottom: 5%;
+        }
+
+        .datetime {
+            font-size: 34px;
+            font-family: $font-lora;
+            border-top: solid 2px $primary-color;
+            border-bottom: solid 2px $primary-color;
+            padding: 1.5%;
+            margin-bottom: 10%;
+        }
+
+        .calendar {
+            margin-bottom: 8%;
+            position: relative;
+            perspective: 1000px;
+            img.main-img {
+                max-width: 433px;
+                width: 100%;
+                height: auto;
+
+            }
+            img.heart {
+                position: absolute;
+                max-width: 40px;
+                width: 100%;
+                height: auto;
+                top: 45%;
+                right: 34%;
+            }
+            img.date-num {
+                position: absolute;
+                max-width: 18px;
+                width: 100%;
+                height: auto;
+                top: 49%;
+                right: 36%;
+            }
+        }
+
+        .location {
+            width: 100%;
+            .label {
+                font-family: $font-lora;
+                font-size: 17px;
+                margin-bottom: 2%;
+            }
+            .name {
+                font-family: $font-UVNKeChuyen3;
+                font-size: 42px;
+                line-height: 1.2;
+                margin-bottom: 2%;
+            }
+            .address {
+                font-family: $font-lora;
+                font-size: 16px;
+                margin-bottom: 2%;
+            }
+
+            .map {
+                @include flex-center;
+                text-decoration: none;
+                color: $primary-color;
+                margin-bottom: 10%;
+                font-size: 20px;
+                text-transform: uppercase;
+                letter-spacing: 1.2px;
+                font-family: $font-lora;
+                .location-icon {
+                    max-width: 24px;
+                    width: 100%;
+                    aspect-ratio: 1;
+                    fill: $primary-color;  /* Đổi màu */
+                    transition: all 0.3s ease;
+                    @include flex-center;
+                    margin-right: 1%;
+                }
+            }
+            // .maps-button {
+            //     font-family: $font-gotham;
+            //     display: block;
+            //     width: 40%;
+            //     padding: .5% 0;
+            //     background-color: #93825dff;
+            //     color: white;
+            //     border: none;
+            //     font-size: 15px;
+            //     letter-spacing: 1px;
+            //     cursor: pointer;
+            //     font-weight: 600;
+            //     border-radius: 15px;
+            //     transition: all 0.3s ease;
+            //     text-transform: uppercase;
+            //     margin: 0 auto;
+            //     margin-bottom: 10%;
+            // }
+        }
+    }
+
+    @media (max-width: 500px) {
+        .content {
+            .save-the-date {
+                font-size: calc((44 / 500) * 100vw);
+            }
+            .image-tulip {  
+                max-width: calc((196 / 500) * 100vw);
+            }
+    
+            .invitation-text {
+                font-size: calc((17 / 500) * 100vw);
+            }
+    
+            .names {
+                .name {
+                    font-size: calc((38 / 500) * 100vw);
+                }
+                .ampersand {
+                    img {
+                        max-width: calc((60 / 500) * 100vw);
+                    }
+                }
+            }
+    
+            .subtitle {
+                font-size: calc((17 / 500) * 100vw);
+            }
+    
+            .datetime {
+                font-size: calc((34 / 500) * 100vw);
+            }
+
+            .calendar {
+                img.main-img {
+                    max-width: calc((433 / 500) * 100vw);
+                }
+                img.heart {
+                    max-width: calc((40 / 500) * 100vw);
+                }
+                img.date-num {
+                    max-width: calc((18 / 500) * 100vw);
+                }
+            }
+    
+            .location {
+                perspective: 1000px;
+                .label {
+                    font-size: calc((17 / 500) * 100vw);
+                }
+                .name {
+                    font-size: calc((42 / 500) * 100vw);
+                }
+                .address {
+                    font-size: calc((16 / 500) * 100vw);
+                }
+                .map {
+                    font-size: calc((20 / 500) * 100vw);
+                    letter-spacing: calc((1.2 / 500) * 100vw);
+                    .location-icon {
+                        max-width: calc((24 / 500) * 100vw);
+                    }
+                }
+                // .maps-button {
+                //     font-size: calc((15 / 500) * 100vw);
+                //     letter-spacing: calc((1 / 500) * 100vw);
+                // }
+            }
+            
+        }
+    }
+}
+
+.pulse {
+    will-change: transform;
+    transform: translateZ(0);
+  }

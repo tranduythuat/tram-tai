@@ -1,0 +1,1017 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "SVN-Gotham";
+  src: url("../../assets/fonts/SVN-GothamBook.woff2") format("woff2"), url("../../assets/fonts/SVN-GothamBook.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lora";
+  src: url("../../assets/fonts/Lora-Regular.woff2") format("woff2"), url("../../assets/fonts/Lora-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "UVNKeChuyen3";
+  src: url("../../assets/fonts/UVNKeChuyen3.woff2") format("woff2"), url("../../assets/fonts/UVNKeChuyen3.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BlushingRose";
+  src: url("../../assets/fonts/1FTV-Blushing-Rose.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  font-size: 12px;
+  margin: 0;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.container {
+  max-width: 500px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  color: #93825d;
+  background: url("../../assets/images/base_bg.png") no-repeat center/cover;
+}
+
+/* music */
+.music-box {
+  display: flex;
+  position: fixed;
+  bottom: 10px;
+  right: 1%;
+}
+.music-box .label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 90px;
+}
+.music-box .label span {
+  position: absolute;
+  right: -20%;
+  width: 100%;
+  font-family: "Lora", sans-serif;
+  font-size: 12px;
+  background-color: rgb(138, 121, 89);
+  color: antiquewhite;
+  padding: 3% 0% 3% 20%;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  opacity: 0.9;
+}
+.music-box .player {
+  max-width: 55px;
+  width: 100%;
+  aspect-ratio: 1;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player #iconSvg {
+  width: 100%;
+  height: 100%;
+  fill: var(--text-title-color);
+}
+
+@media (max-width: 500px) {
+  .music-box {
+    bottom: 2vw;
+  }
+  .music-box .label {
+    width: 18vw;
+  }
+  .music-box .label span {
+    font-size: 2.4vw;
+  }
+  .music-box .player {
+    max-width: 11vw;
+  }
+}
+.spin {
+  animation: spin 4s linear infinite;
+}
+
+/* Định nghĩa hoạt ảnh xoay */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.ping {
+  -webkit-animation: ping 1s ease-in-out infinite both;
+  animation: ping 1s ease-in-out infinite both;
+}
+
+/**
+ * ----------------------------------------
+ * animation ping
+ * ----------------------------------------
+ */
+@-webkit-keyframes ping {
+  0% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  80% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(2.2);
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+@keyframes ping {
+  0% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  80% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(2.2);
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #93825d;
+  color: white;
+  padding: 1rem;
+}
+
+.image-wrapper {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0;
+}
+.image-wrapper img {
+  width: 320px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.animate-flip, .animate-flip-yoyo {
+  transform-origin: left center;
+  transform: rotateY(-120deg) scale(0.9);
+  opacity: 0;
+  filter: brightness(0.6);
+  backface-visibility: hidden;
+  transition: none;
+}
+
+.animate-flip.active, .animate-flip-yoyo.active {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  top: 100px;
+  border-radius: 12px;
+}
+
+.red {
+  background: #e74c3c;
+}
+
+.blue {
+  background: #3498db;
+}
+
+.green {
+  background: #2ecc71;
+}
+
+.shake-text {
+  animation: shakeWithPause 3s ease-in-out infinite;
+}
+
+@keyframes shakeWithPause {
+  /* Rung lắc nhẹ - kéo dài hơn */
+  0%, 100% {
+    transform: translateX(0);
+  }
+  3% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+  6% {
+    transform: translateX(3px) rotate(1deg);
+  }
+  9% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+  12% {
+    transform: translateX(3px) rotate(1deg);
+  }
+  15% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+  18% {
+    transform: translateX(3px) rotate(1deg);
+  }
+  21% {
+    transform: translateX(-2px) rotate(-0.5deg);
+  }
+  24% {
+    transform: translateX(2px) rotate(0.5deg);
+  }
+  27% {
+    transform: translateX(-2px) rotate(-0.5deg);
+  }
+  30% {
+    transform: translateX(2px) rotate(0.5deg);
+  }
+  33% {
+    transform: translateX(-1px) rotate(-0.3deg);
+  }
+  36% {
+    transform: translateX(1px) rotate(0.3deg);
+  }
+  39% {
+    transform: translateX(-1px) rotate(-0.3deg);
+  }
+  42% {
+    transform: translateX(0) rotate(0deg);
+  }
+  /* Nghỉ một đoạn */
+  42%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+.hero {
+  width: 100%;
+}
+.hero .content {
+  aspect-ratio: 500/730;
+  background: url("../../assets/images/hero_bg.webp") no-repeat center/contain;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  perspective: 1000px;
+}
+.hero .content .logo {
+  width: 100%;
+  max-width: 254px;
+}
+@media (max-width: 500px) {
+  .hero .content .logo {
+    max-width: 50.8vw;
+  }
+}
+
+.invite {
+  width: 100%;
+  background: url("../../assets/images/flowers_bg.png") no-repeat, url("../../assets/images/flower_bg_bottom_bg.png") no-repeat;
+  background-size: 100% auto, 100% auto;
+  background-position: center 12%, bottom;
+}
+.invite .content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "SVN-GothamBook", sans-serif;
+}
+.invite .content .save-the-date {
+  font-family: "UVNKeChuyen3", sans-serif;
+  font-size: 44px;
+  font-weight: 300;
+  margin-top: 6%;
+  margin-bottom: 4%;
+}
+.invite .content .image-tulip {
+  max-width: 196px;
+  width: 100%;
+  margin-bottom: 5%;
+}
+.invite .content .image-tulip img {
+  width: 100%;
+  height: auto;
+}
+.invite .content .invitation-text {
+  font-family: "Lora", sans-serif;
+  font-size: 17px;
+  margin-bottom: 8%;
+}
+.invite .content .names {
+  position: relative;
+  margin-bottom: 8%;
+}
+.invite .content .names .name {
+  font-family: "BlushingRose", sans-serif;
+  font-size: 38px;
+}
+.invite .content .names .name.husband {
+  margin-bottom: 10%;
+}
+.invite .content .names .ampersand {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -10;
+}
+.invite .content .names .ampersand img {
+  max-width: 60px;
+  width: 100%;
+  height: auto;
+}
+.invite .content .subtitle {
+  font-family: "Lora", sans-serif;
+  font-size: 17px;
+  margin-bottom: 5%;
+}
+.invite .content .datetime {
+  font-size: 34px;
+  font-family: "Lora", sans-serif;
+  border-top: solid 2px #93825d;
+  border-bottom: solid 2px #93825d;
+  padding: 1.5%;
+  margin-bottom: 10%;
+}
+.invite .content .calendar {
+  margin-bottom: 8%;
+  position: relative;
+  perspective: 1000px;
+}
+.invite .content .calendar img.main-img {
+  max-width: 433px;
+  width: 100%;
+  height: auto;
+}
+.invite .content .calendar img.heart {
+  position: absolute;
+  max-width: 40px;
+  width: 100%;
+  height: auto;
+  top: 45%;
+  right: 34%;
+}
+.invite .content .calendar img.date-num {
+  position: absolute;
+  max-width: 18px;
+  width: 100%;
+  height: auto;
+  top: 49%;
+  right: 36%;
+}
+.invite .content .location {
+  width: 100%;
+}
+.invite .content .location .label {
+  font-family: "Lora", sans-serif;
+  font-size: 17px;
+  margin-bottom: 2%;
+}
+.invite .content .location .name {
+  font-family: "UVNKeChuyen3", sans-serif;
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 2%;
+}
+.invite .content .location .address {
+  font-family: "Lora", sans-serif;
+  font-size: 16px;
+  margin-bottom: 2%;
+}
+.invite .content .location .map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #93825d;
+  margin-bottom: 10%;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-family: "Lora", sans-serif;
+}
+.invite .content .location .map .location-icon {
+  max-width: 24px;
+  width: 100%;
+  aspect-ratio: 1;
+  fill: #93825d; /* Đổi màu */
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1%;
+}
+@media (max-width: 500px) {
+  .invite .content .save-the-date {
+    font-size: 8.8vw;
+  }
+  .invite .content .image-tulip {
+    max-width: 39.2vw;
+  }
+  .invite .content .invitation-text {
+    font-size: 3.4vw;
+  }
+  .invite .content .names .name {
+    font-size: 7.6vw;
+  }
+  .invite .content .names .ampersand img {
+    max-width: 12vw;
+  }
+  .invite .content .subtitle {
+    font-size: 3.4vw;
+  }
+  .invite .content .datetime {
+    font-size: 6.8vw;
+  }
+  .invite .content .calendar img.main-img {
+    max-width: 86.6vw;
+  }
+  .invite .content .calendar img.heart {
+    max-width: 8vw;
+  }
+  .invite .content .calendar img.date-num {
+    max-width: 3.6vw;
+  }
+  .invite .content .location {
+    perspective: 1000px;
+  }
+  .invite .content .location .label {
+    font-size: 3.4vw;
+  }
+  .invite .content .location .name {
+    font-size: 8.4vw;
+  }
+  .invite .content .location .address {
+    font-size: 3.2vw;
+  }
+  .invite .content .location .map {
+    font-size: 4vw;
+    letter-spacing: 0.24vw;
+  }
+  .invite .content .location .map .location-icon {
+    max-width: 4.8vw;
+  }
+}
+
+.pulse {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.timeline {
+  width: 100%;
+}
+.timeline .content {
+  width: 100%;
+  background: url("../../assets/images/flowers_bg.png") no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Lora", sans-serif;
+  font-size: 14.6px;
+}
+.timeline .content .title {
+  font-family: "UVNKeChuyen3", sans-serif;
+  font-size: 52px;
+  font-weight: 300;
+  margin-top: 12%;
+}
+.timeline .items {
+  padding: 16% 15% 16%;
+}
+.timeline .items .item {
+  display: flex;
+  margin-bottom: 12%;
+}
+.timeline .items .item .icon-wrapper {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+.timeline .items .item .icon-wrapper .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.timeline .items .item .icon-wrapper .icon img {
+  width: 60px;
+  height: auto;
+}
+.timeline .items .item .icon-wrapper .time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20%;
+}
+.timeline .items .item .event {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+}
+.timeline .items .item .event .event-title {
+  margin-bottom: 5%;
+}
+@media (max-width: 500px) {
+  .timeline .content {
+    font-size: 2.92vw;
+  }
+  .timeline .content .title {
+    font-size: 10.4vw;
+  }
+  .timeline .items .item .icon-wrapper .icon img {
+    width: 12vw;
+  }
+}
+
+.dresscode {
+  width: 100%;
+  aspect-ratio: 500/350;
+}
+.dresscode .content {
+  width: 100%;
+  perspective: 1000px;
+}
+.dresscode .content h2 {
+  font-family: "UVNKeChuyen3", sans-serif;
+  font-size: 52px;
+  font-weight: 300;
+  margin-top: 8%;
+}
+.dresscode .content .color-palette {
+  margin: 5% 0 3%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 2%;
+}
+.dresscode .content .color-palette .color-circle {
+  max-width: 35px;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.dresscode .content .top-img img, .dresscode .content .bottom-img img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 500px) {
+  .dresscode .content h2 {
+    font-size: 10.4vw;
+  }
+  .dresscode .content .color-palette .color-circle {
+    max-width: 7vw;
+  }
+}
+
+.rsvp {
+  width: 100%;
+}
+.rsvp .content {
+  width: 100%;
+  font-family: "Lora", sans-serif;
+  background: url("../../assets/images/flowers_bg.png") no-repeat;
+  background-size: 100% auto;
+  background-position: center 123%;
+  perspective: 1000px;
+}
+.rsvp .content .top-img img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+.rsvp .content .rsvp-form {
+  display: block;
+  padding: 8% 9% 5%;
+}
+.rsvp .content .rsvp-form .header {
+  padding-bottom: 8%;
+}
+.rsvp .content .rsvp-form .header .title {
+  font-family: "UVNKeChuyen3", sans-serif;
+  font-size: 46px;
+  font-weight: 300;
+  margin-bottom: 2%;
+}
+.rsvp .content .rsvp-form .header .subtitle {
+  font-size: 15px;
+}
+.rsvp .content .rsvp-form .button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6%;
+  margin-bottom: 2%;
+}
+.rsvp .content .rsvp-form .button-group .radio-wrapper {
+  position: relative;
+}
+.rsvp .content .rsvp-form .button-group .radio-wrapper input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.rsvp .content .rsvp-form .button-group .radio-label {
+  display: block;
+  padding: 4%;
+  border-radius: 8px;
+  background: #f8e9ee;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  text-align: center;
+}
+.rsvp .content .rsvp-form .button-group .radio-label:hover {
+  background: #dba7b2;
+}
+.rsvp .content .rsvp-form .button-group .radio-wrapper input[type=radio]:checked + .radio-label {
+  background: #dba7b2;
+  color: white;
+}
+.rsvp .content .rsvp-form .form-group {
+  margin-bottom: 2%;
+}
+.rsvp .content .rsvp-form .form-group input[type=text],
+.rsvp .content .rsvp-form .form-group input[type=number],
+.rsvp .content .rsvp-form .form-group textarea {
+  font-family: "Lora", sans-serif;
+  color: #93825d;
+  width: 100%;
+  padding: 2% 4%;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 14px;
+  outline: none;
+  border: 2px solid #93825d;
+  transition: border-color 0.3s ease;
+}
+.rsvp .content .rsvp-form .form-group input[type=text]:focus,
+.rsvp .content .rsvp-form .form-group input[type=number]:focus,
+.rsvp .content .rsvp-form .form-group textarea:focus {
+  outline: none;
+}
+.rsvp .content .rsvp-form .form-group textarea#message {
+  aspect-ratio: 500/100;
+  resize: vertical;
+  font-family: inherit;
+}
+.rsvp .content .rsvp-form .form-group input[type=text]::placeholder,
+.rsvp .content .rsvp-form .form-group textarea::placeholder {
+  color: #93825d;
+}
+.rsvp .content .rsvp-form .form-group textarea::placeholder {
+  white-space: pre-line; /* Cho phép hiển thị xuống dòng trong placeholder */
+}
+.rsvp .content .rsvp-form .form-group .guest-info-title {
+  font-size: 15px;
+  margin-bottom: 2%;
+}
+.rsvp .content .rsvp-form .form-group .form-select {
+  font-family: "Lora", sans-serif;
+  width: 100%;
+  padding: 2% 4%;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 14px;
+  color: #93825d;
+  outline: none;
+  border: 2px solid #93825d;
+  transition: border-color 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("../../assets/images/chevron_icon.png");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 9px;
+  padding-right: 45px;
+  cursor: pointer;
+}
+.rsvp .content .rsvp-form .form-group.dietary {
+  margin: 8% 0 10%;
+}
+.rsvp .content .rsvp-form .form-group.dietary p {
+  margin-bottom: 1%;
+}
+.rsvp .content .rsvp-form .form-group.dietary p.subtitle {
+  margin-bottom: 3%;
+}
+.rsvp .content .rsvp-form .form-group.other {
+  margin-bottom: 8%;
+}
+.rsvp .content .rsvp-form .form-group.guest-info {
+  margin-bottom: 6%;
+  margin-top: 5%;
+}
+.rsvp .content .rsvp-form .form-group.guest-info .dietary-label {
+  margin-bottom: 2%;
+}
+.rsvp .content .rsvp-form .form-group.guest-info .subtitle {
+  margin-bottom: 3%;
+}
+.rsvp .content .rsvp-form .message {
+  text-align: center;
+  margin: 10% 0 4%;
+}
+.rsvp .content .rsvp-form .message p {
+  margin-bottom: 2%;
+}
+.rsvp .content .rsvp-form .submit-btn {
+  font-family: "Lora", sans-serif;
+  width: 30%;
+  padding: 2% 0;
+  background: #93825d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s ease;
+  margin: 3% 0 10%;
+}
+.rsvp .content .rsvp-form .submit-btn:hover {
+  background: rgb(41, 51, 36);
+  opacity: 0.9;
+}
+.rsvp .content .rsvp-form .submit-btn:active {
+  transform: scale(0.98);
+}
+.rsvp label {
+  font-family: "SVN-GothamBook", sans-serif;
+  display: block;
+  margin-bottom: 2%;
+  text-transform: uppercase;
+  font-size: 9.11px;
+}
+.rsvp .text-size-10 {
+  font-size: 9.11px;
+}
+.rsvp .text-size-8 {
+  font-size: 8px;
+}
+@media (max-width: 500px) {
+  .rsvp .content .text-size-10, .rsvp .content label {
+    font-size: 1.822vw;
+  }
+  .rsvp .content .rsvp-form .header .title {
+    font-size: 9.2vw;
+  }
+  .rsvp .content .rsvp-form .header .subtitle {
+    font-size: 3vw;
+  }
+  .rsvp .content .rsvp-form .form-group input[type=text],
+  .rsvp .content .rsvp-form .form-group input[type=number],
+  .rsvp .content .rsvp-form .form-group textarea,
+  .rsvp .content .rsvp-form .form-group .form-select {
+    font-size: 2.8vw;
+  }
+  .rsvp .content .rsvp-form .form-group .guest-info-title {
+    font-size: 3vw;
+  }
+  .rsvp .content .rsvp-form .submit-btn {
+    font-size: 2.6vw;
+  }
+}
+
+.countdown .content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 10%;
+  background: url("../../assets/images/flower_bg_bottom_bg.png") no-repeat;
+  background-size: 100% auto;
+  background-position: center 85%;
+}
+.countdown .content .divider {
+  margin: 2% 0 6%;
+  perspective: 1000px;
+}
+.countdown .content .divider img {
+  max-width: 132px;
+  width: 100%;
+  height: auto;
+}
+.countdown .content .title {
+  font-family: "UVNKeChuyen3", sans-serif;
+  font-size: 46px;
+  font-weight: 300;
+  margin-bottom: 5%;
+}
+.countdown .content .countdown-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  width: 80%;
+}
+.countdown .content .countdown-box .time-box {
+  text-align: center;
+  flex: 1;
+}
+.countdown .content .countdown-box .time-box .number {
+  font-family: "BlushingRose", sans-serif;
+  font-size: 55px;
+  font-weight: 100;
+  line-height: 1;
+  margin-bottom: 5%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.countdown .content .countdown-box .time-box .label {
+  font-size: 13px;
+  color: #a1887f;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+.countdown .content .countdown-box .time-box:not(:last-child) .number {
+  position: relative;
+}
+.countdown .content .countdown-box .time-box:not(:last-child) .number::after {
+  content: ":";
+  position: absolute;
+  right: -3%;
+}
+@media (max-width: 500px) {
+  .countdown .content .divider img {
+    max-width: 26.4vw;
+  }
+  .countdown .content .title {
+    font-size: 9.2vw;
+  }
+  .countdown .content .countdown-box .time-box .number {
+    font-size: 11vw;
+  }
+}
+
+.end {
+  width: 100%;
+}
+.end .content {
+  width: 100%;
+  aspect-ratio: 500/268;
+  background: url("../../assets/images/end_bg.webp") no-repeat center/cover;
+  color: white;
+  padding: 0 8%;
+  text-align: center;
+}
+.end .content .text-main {
+  font-size: 16px;
+  line-height: 1.3;
+  letter-spacing: 1px;
+  margin-top: 18%;
+}
+.end .content .thanks {
+  font-family: "UVNKeChuyen3", sans-serif;
+  font-size: 40px;
+  margin-top: 8%;
+}
+@media (max-width: 500px) {
+  .end .content .text-main {
+    font-size: 3.2vw;
+    letter-spacing: 0.2vw;
+  }
+  .end .content .thanks {
+    font-size: 8vw;
+  }
+}
+
+.letter-section {
+  width: 100%;
+  max-width: 500px;
+}
+.letter-section .content {
+  width: 100%;
+  aspect-ratio: 500/822;
+  background: url("../../assets/images/letter_bg.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #93825d;
+}
+.letter-section .content .names {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 12%;
+}
+.letter-section .content .names .name {
+  font-family: "BlushingRose", sans-serif;
+  font-size: 38px;
+  text-align: center;
+}
+.letter-section .content .names .name.husband {
+  margin-bottom: 10%;
+}
+.letter-section .content .names .ampersand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  z-index: -10;
+}
+.letter-section .content .names .ampersand img {
+  max-width: 60px;
+  width: 100%;
+  height: auto;
+}
+.letter-section .content .letter-img {
+  position: relative;
+  cursor: pointer;
+}
+.letter-section .content .letter-img img {
+  max-width: 397px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08), 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+.letter-section .content .letter-img .open-letter {
+  position: absolute;
+  left: 43%;
+  bottom: 9%;
+  font-size: 14px;
+}
+.letter-section .content .info .date {
+  font-size: 16px;
+  margin-top: 48%;
+}
+@media (max-width: 500px) {
+  .letter-section .content .names .name {
+    font-size: 7.6vw;
+  }
+  .letter-section .content .names .ampersand img {
+    max-width: 12vw;
+  }
+  .letter-section .content .letter-img img {
+    max-width: 79.4vw;
+  }
+  .letter-section .content .letter-img .open-letter {
+    font-size: 2.8vw;
+  }
+  .letter-section .content .info .date {
+    font-size: 3.2vw;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

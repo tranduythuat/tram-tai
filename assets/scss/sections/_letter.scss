@@ -1,0 +1,104 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.letter-section {
+    width: 100%;
+    max-width: 500px;
+    .content {
+        width: 100%;
+        aspect-ratio: 500 / 822;
+        background: url('../../assets/images/letter_bg.png') no-repeat;
+        background-position: center;
+        background-size: cover;
+        @include flex-center;
+        flex-direction: column;
+        color: $primary-color;
+        .names {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            margin-bottom: 12%;
+
+            .name {
+                font-family: $font-BlushingRose;
+                font-size: 38px;
+                text-align: center;
+
+                &.husband {
+                    margin-bottom: 10%;
+                }
+            }
+            .ampersand {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                position: absolute;
+                z-index: -10;
+                img {
+                    max-width: 60px;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+        .letter-img {
+            position: relative;
+            cursor: pointer;
+            img {
+                max-width: 397px;
+                width: 100%;
+                height: auto;
+                box-shadow:
+                    0 4px 10px rgba(0, 0, 0, 0.08),
+                    0 12px 30px rgba(0, 0, 0, 0.06);
+            }
+            .open-letter {
+                position: absolute;
+                left: 43%;
+                bottom: 9%;
+                font-size: 14px;
+            }
+        }
+
+        .info {
+            .date {
+                font-size: 16px;
+                margin-top: 48%;
+            }
+        }
+    }
+
+    @media (max-width: 500px) {
+        .content {
+            .names {
+                .name {
+                    font-size: calc((38 / 500) * 100vw);
+                }
+                .ampersand {
+                    img {
+                        max-width: calc((60 / 500) * 100vw);
+                    }
+                }
+            }
+    
+            .letter-img {
+                img {
+                    max-width: calc((397 / 500) * 100vw);;
+                }
+                .open-letter {
+                    font-size: calc((14 / 500) * 100vw);;
+                }
+            }
+    
+            .info {
+                .date {
+                    font-size: calc((16 / 500) * 100vw);;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,258 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.rsvp {
+    width: 100%;
+    .content {
+        width: 100%;
+        font-family: $font-lora;
+        background: url('../../assets/images/flowers_bg.png') no-repeat;
+        background-size: 100% auto;
+        background-position: center 123%;
+        perspective: 1000px;
+        .top-img {
+            img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        .rsvp-form {
+            display: block;
+            padding: 8% 9% 5%;
+
+            .header {
+                padding-bottom: 8%;
+                .title {
+                    font-family: $font-UVNKeChuyen3;
+                    font-size: 46px;
+                    font-weight: 300;
+                    margin-bottom: 2%;
+                }
+                .subtitle {
+                    font-size: 15px;
+                }
+            }
+
+            .button-group {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 6%;
+                margin-bottom: 2%;
+
+                .radio-wrapper {
+                    position: relative;
+                }
+
+                .radio-wrapper input[type="radio"] {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                }
+
+                .radio-label {
+                    display: block;
+                    padding: 4%;
+                    border-radius: 8px;
+                    background: $secondary-color;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    text-transform: uppercase;
+                    text-align: center;
+
+                    &:hover {
+                        background: $title-color;
+                    }
+                }
+
+                .radio-wrapper input[type="radio"]:checked + .radio-label {
+                    background: $title-color;
+                    color: white;
+                }
+            }
+
+            .form-group {
+                margin-bottom: 2%;
+
+                input[type="text"],
+                input[type="number"],
+                textarea {
+                    font-family: $font-lora;
+                    color: $primary-color;
+                    width: 100%;
+                    padding: 2% 4%;
+                    border-radius: 8px;
+                    background: transparent;
+                    font-size: 14px;
+                    outline: none;
+                    border: 2px solid $primary-color;
+                    transition: border-color 0.3s ease;
+                    // text-transform: uppercase;
+                }
+
+                input[type="text"]:focus,
+                input[type="number"]:focus,
+                textarea:focus {
+                    outline: none;
+                }
+
+                textarea#message {
+                    aspect-ratio: 500 / 100;
+                    resize: vertical;
+                    font-family: inherit;
+
+                }
+
+                input[type="text"]::placeholder,
+                textarea::placeholder {
+                    color: $primary-color;
+                }
+
+                textarea::placeholder {
+                    white-space: pre-line; /* Cho phép hiển thị xuống dòng trong placeholder */
+                }
+
+                .guest-info-title {
+                    font-size: 15px;
+                    margin-bottom: 2%;
+                }
+
+                .form-select {
+                    font-family: $font-lora;
+                    width: 100%;
+                    padding: 2% 4%;
+                    border-radius: 8px;
+                    background: transparent;
+                    font-size: 14px;
+                    color: $primary-color;
+                    outline: none;
+                    border: 2px solid $primary-color ;
+                    transition: border-color 0.3s ease;
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background-image: url("../../assets/images/chevron_icon.png");
+                    background-repeat: no-repeat;
+                    background-position: right 10px center;
+                    background-size: 9px;
+                    padding-right: 45px;
+                    cursor: pointer;
+                }
+            }
+
+            .form-group.dietary {
+                margin: 8% 0 10%;
+                p {
+                    margin-bottom: 1%;
+                }
+                p.subtitle {
+                    margin-bottom: 3%;
+                }
+            }
+
+            .form-group.other {
+                margin-bottom: 8%;
+            }
+
+            .form-group.guest-info {
+                margin-bottom: 6%;
+                margin-top: 5%;
+                .dietary-label {
+                    margin-bottom: 2%;
+                }
+                .subtitle {
+                    margin-bottom: 3%;
+                }
+            }
+
+
+            .message {
+                text-align: center;
+                margin: 10% 0 4%;
+                p {
+                    margin-bottom: 2%;
+                }
+            }
+    
+            .submit-btn {
+                font-family: $font-lora;
+                width: 30%;
+                padding: 2% 0;
+                background: $primary-color;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 13px;
+                cursor: pointer;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: background 0.3s ease;
+                margin: 3% 0 10%;
+            }
+    
+            .submit-btn:hover {
+                background: rgb(41, 51, 36);
+                opacity: 0.9;
+            }
+    
+            .submit-btn:active {
+                transform: scale(0.98);
+            }
+    
+        }
+    }
+
+    label {
+        font-family: $font-gotham;
+        display: block;
+        margin-bottom: 2%;
+        text-transform: uppercase;
+        font-size: 9.11px;
+    }
+
+    .text-size-10 {
+        font-size: 9.11px;
+    }
+
+    .text-size-8 {
+        font-size: 8px;
+    }
+
+    @media (max-width: 500px) {
+        .content {
+            .text-size-10, label{
+                font-size: calc((9.11 / 500) * 100vw);
+            }
+        
+            .rsvp-form {
+                .header {
+                    .title {
+                        font-size: calc((46 / 500) * 100vw);
+                    }
+                    .subtitle {
+                        font-size: calc((15 / 500) * 100vw);;
+                    }
+                }
+
+                .form-group {
+                    input[type="text"],
+                    input[type="number"],
+                    textarea,
+                    .form-select {
+                        font-size: calc((14 / 500) * 100vw);
+                    }
+
+                    .guest-info-title {
+                        font-size: calc((15 / 500) * 100vw);
+                    }
+                }
+
+                .submit-btn {
+                    font-size: calc((13 / 500) * 100vw);
+                }
+            }
+        }
+    }
+}
