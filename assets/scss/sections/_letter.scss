@@ -19,7 +19,7 @@
             align-items: center;
             flex-direction: column;
             position: relative;
-            margin-bottom: 12%;
+            margin-bottom: 6%;
 
             .name {
                 font-family: $font-BlushingRose;
@@ -49,17 +49,17 @@
             position: relative;
             cursor: pointer;
             img {
-                max-width: 397px;
+                max-width: 446px;
                 width: 100%;
                 height: auto;
-                box-shadow:
-                    0 4px 10px rgba(0, 0, 0, 0.08),
-                    0 12px 30px rgba(0, 0, 0, 0.06);
+                // box-shadow:
+                //     0 4px 10px rgba(0, 0, 0, 0.08),
+                //     0 12px 30px rgba(0, 0, 0, 0.06);
             }
             .open-letter {
                 position: absolute;
-                left: 43%;
-                bottom: 9%;
+                left: 44%;
+                bottom: 16%;
                 font-size: 14px;
             }
         }
@@ -67,7 +67,7 @@
         .info {
             .date {
                 font-size: 16px;
-                margin-top: 48%;
+                margin-top: 182;
             }
         }
     }
@@ -87,7 +87,7 @@
     
             .letter-img {
                 img {
-                    max-width: calc((397 / 500) * 100vw);;
+                    max-width: calc((446 / 500) * 100vw);;
                 }
                 .open-letter {
                     font-size: calc((14 / 500) * 100vw);;
