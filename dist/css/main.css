@@ -56,6 +56,17 @@ section {
   overflow: hidden;
   color: #93825d;
   background: url("../../assets/images/base_bg.png") no-repeat center/cover;
+  display: none;
+  opacity: 0;
+}
+
+.card-opened .letter-section {
+  display: none;
+  opacity: 0;
+}
+.card-opened .container {
+  display: block;
+  opacity: 1;
 }
 
 /* music */
@@ -946,6 +957,7 @@ header {
   align-items: center;
   flex-direction: column;
   color: #93825d;
+  perspective: 1000px;
 }
 .letter-section .content .names {
   display: flex;

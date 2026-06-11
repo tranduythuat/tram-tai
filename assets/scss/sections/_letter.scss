@@ -13,6 +13,7 @@
         @include flex-center;
         flex-direction: column;
         color: $primary-color;
+        perspective: 1000px;
         .names {
             display: flex;
             justify-content: center;

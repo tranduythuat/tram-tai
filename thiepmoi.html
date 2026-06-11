@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trâm & Tài</title>
 
-    <meta property="og:image" content="" />
+    <meta property="og:image" content="https://i.postimg.cc/Vvjyw6kQ/5718a8763eb5bfebe6a4.jpg"/>
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="400" />
 
@@ -24,10 +24,19 @@
       type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("opened") === "1") {
+          document.documentElement.classList.add("card-opened");
+        }
+      })();
+    </script>
   </head>
+
   <body>
     <div class="letter-section">
-      <div class="content">
+      <div class="content" id="open-card">
         <div class="names">
           <div class="name husband">BẢO TRÂM</div>
           <div class="ampersand">
@@ -44,16 +53,387 @@
         </div>
       </div>
     </div>
+    <div class="container">
+      <section class="hero">
+        <div class="content" data-animate="fade-in">
+          <img
+            src="assets/images/Logo TT trắng.png"
+            class="logo"
+            data-animate="flip-vertical-left"
+            alt=""
+          />
+        </div>
+      </section>
+
+      <section class="invite">
+        <div class="content" data-animate="fade-in">
+          <h1 class="save-the-date" data-animate="fade-in">Save the date</h1>
+          <div class="calendar" data-animate="rotate-bl">
+            <img src="assets/images/calendar.png" class="main-img" alt="" />
+            <!-- <img src="assets/images/heart.png" class="heart fade-in-pulse" alt=""> -->
+            <!-- <img src="assets/images/date-num.png" class="date-num" data-animate="flip-vertical-left" alt=""> -->
+          </div>
+          <div class="image-tulip">
+            <img src="assets/images/tulip.png" alt="Tulips" data-animate="flip-vertical-left"/>
+          </div>
+          <p class="invitation-text" data-animate="fade-up">
+            Thân mời tham dự <br />
+            Lễ Thành hôn của chúng tôi
+          </p>
+          <div class="names">
+            <div class="name husband" data-animate="fade-right">BẢO TRÂM</div>
+            <div class="ampersand" data-animate="fade-in-pulse">
+              <img src="assets/images/ampersand_icon.png" alt="" />
+            </div>
+            <div class="name" data-animate="fade-left">HỮU TÀI</div>
+          </div>
+          <div class="subtitle" data-animate="fade-in">Được tổ chức vào lúc</div>
+          <div class="datetime" data-animate="fade-in">
+            <div class="time">17:30 - CHỦ NHẬT</div>
+            <div class="date">28.06.2026</div>
+          </div>
+
+          <div class="location" data-animate="fade-in">
+            <div class="label">Địa điểm:</div>
+            <div class="name">
+              Hotel Continental Saigon
+            </div>
+            <div class="address">
+              132 Đồng Khởi, Sài Gòn, Hồ Chí Minh 
+            </div>
+            <!-- <button class="maps-button fade-in">MAPS</button> -->
+            <a href="https://maps.app.goo.gl/a6pq9yiP3ntMWC839?g_st=com.google.maps.preview.copy" target="_blank" class="map" data-animate="fade-in-pulse">
+              <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+                <path d="M64,1C38.8,1,18.3,21.2,18.3,46S64,127,64,127s45.7-56.2,45.7-81S89.2,1,64,1z M64,74.9
+                    c-16.6,0-30-13.2-30-29.5C34,29,47.4,15.8,64,15.8c16.6,0,30,13.2,30,29.5C94,61.6,80.6,74.9,64,74.9z"/>
+              </svg>
+              Chỉ đường
+            </a>
+            
+          </div>
+        </div>
+      </section>
+
+      <section class="dresscode">
+        <div class="content" data-animate="fade-in">
+          <div class="top-img" data-animate="rotate-br-yoyo">
+            <img src="assets/images/dresscode_top_img.png" alt="" />
+          </div>
+          <!-- <h2 class="fade-in">Dresscode</h2>
+          <div class="color-palette">
+            <div
+              class="color-circle first"
+              style="background-color: #f7a5acff"
+            ></div>
+            <div
+              class="color-circle second"
+              style="background-color: #f28f2bff"
+            ></div>
+            <div
+              class="color-circle third"
+              style="background-color: #c6c372ff"
+            ></div>
+            <div
+              class="color-circle four"
+              style="background-color: #b6d2eeff"
+            ></div>
+            <div
+              class="color-circle five"
+              style="background-color: #f15d57ff"
+            ></div>
+            <div
+              class="color-circle six"
+              style="background-color: #fdc179ff"
+            ></div>
+            <div
+              class="color-circle seven"
+              style="background-color: #fedc62ff"
+            ></div>
+          </div>
+          <div class="bottom-img fade-up">
+            <img src="assets/images/dresscode_bottom_img.png" alt="" />
+          </div> -->
+        </div>
+      </section>
+
+      <section class="timeline">
+        <div class="content" data-animate="fade-in">
+          <h1 class="title" data-animate="fade-down">Timeline</h1>
+          <div class="items">
+            <div class="item timeline-item">
+              <div class="icon-wrapper">
+                <div class="icon">
+                  <img class="icon-animate" src="assets/images/icons/camera.png" alt="" />
+                </div>
+                <div class="time">17:30</div>
+              </div>
+              <div class="event">
+                <div class="event-title">ĐÓN KHÁCH, CHỤP PTB</div>
+                <div class="event-description">
+                  Checkin với photobooth và gửi lời chúc phúc đến Dâu Rể
+                </div>
+              </div>
+            </div>
+
+            <div class="item timeline-item">
+              <div class="icon-wrapper">
+                <div class="icon">
+                  <img class="icon-animate" src="assets/images/icons/rings.png" alt="" />
+                </div>
+                <div class="time">18:30</div>
+              </div>
+              <div class="event">
+                <div class="event-title">CEREMONY</div>
+                <div class="event-description">
+                  Cùng nhau chứng kiến khoảnh khắc thiêng liêng cùng CDCR
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="item timeline-item">
+              <div class="icon-wrapper">
+                <div class="icon">
+                  <img class="icon-animate" src="assets/images/icons/cups.png" alt="" />
+                </div>
+                <div class="time">17:00</div>
+              </div>
+              <div class="event">
+                <div class="event-title">COCKTAIL HOUR</div>
+                <div class="event-description">
+                  Thưởng thức đồ uống và trò chuyện, chụp ảnh cùng CDCR
+                </div>
+              </div>
+            </div> -->
+
+            <div class="item timeline-item">
+              <div class="icon-wrapper">
+                <div class="icon">
+                  <img class="icon-animate" src="assets/images/icons/party.png" alt="" />
+                </div>
+                <div class="time">19:00</div>
+              </div>
+              <div class="event">
+                <div class="event-title">DINNER</div>
+                <div class="event-description">
+                  Cùng nhau ăn tiệc và nâng ly chúc mừng CDCR
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rsvp">
+        <div class="content" data-animate="fade-in">
+          <div class="top-img" data-animate="rotate-bl-yoyo">
+            <img src="assets/images/rsvp-top-img.png" alt="" />
+          </div>
+          <form id="rsvpForm" class="rsvp-form">
+            <div class="header" data-animate="fade-up">
+              <h2 class="title">Xác nhận tham dự</h2>
+              <p class="subtitle">
+                Khách mời vui lòng xác nhận tham dự trước ngày <strong>20.06</strong> <br>
+                để chúng mình có thể chuẩn bị chu đáo nhất!
+              </p>
+            </div>
+            <!-- <div class="button-group fade-in">
+              <div class="radio-wrapper">
+                <input
+                  type="radio"
+                  id="attendYes"
+                  name="confirm"
+                  value="yes"
+                  checked
+                />
+                <label for="attendYes" class="radio-label"
+                  >Nhất định tham dự - /Yes/</label
+                >
+              </div>
+              <div class="radio-wrapper">
+                <input type="radio" id="attendNo" name="confirm" value="no" />
+                <label for="attendNo" class="radio-label"
+                  >Không thể tham dự - /No/</label
+                >
+              </div>
+            </div> -->
+
+            <!-- <div class="form-group guest-number fade-right">
+            <label>
+              NUMBER OF ATTENDANCE
+              <span class="subtitle">/SỐ NGƯỜI ĐI CÙNG/</span>
+            </label>
+            <input type="text" id="attendance" name="attendance" placeholder="">
+          </div> -->
+
+            <div class="form-group" data-animate="fade-up">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Tên của bạn"
+                required
+              />
+            </div>
+
+            <div class="form-group" data-animate="fade-up">
+              <select class="form-select" name="confirm" required>
+                <option value="" disabled selected>Bạn sẽ đến chứ?</option>
+                <option value="yes">Mình chắc chắn sẽ đến</option>
+                <option value="no">Xin lỗi mình bận rồi</option>
+              </select>
+            </div>
+
+            <div class="form-group" data-animate="fade-up">
+              <select class="form-select" name="guest_number">
+                <option value="" disabled selected>
+                  Bạn sẽ tham dự cùng bao nhiêu người?
+                </option>
+                <option value="Đi một mình">Đi một mình</option>
+                <option value="1 người">1 người</option>
+                <option value="2 người">2 người</option>
+                <option value="3 người">3 người</option>
+              </select>
+            </div>
+
+            <!-- <div class="form-group dietary">
+              <p class="dietary-label text-size-10 fade-in">
+                BẠN CÓ YÊU CẦU ĐẶC BIỆT VỀ THỨC ĂN KHÔNG?
+              </p>
+              <p class="subtitle text-size-10 fade-in">
+                /DO YOU HAVE ANY DIETARY REQUIREMENTS?/
+              </p>
+              <div class="button-group fade-in">
+                <div class="radio-wrapper">
+                  <input
+                    type="radio"
+                    id="nonVeg"
+                    name="dietary"
+                    value="non-vegetarian"
+                    checked
+                  />
+                  <label for="nonVeg" class="radio-label">
+                    TÔI BÌNH THƯỜNG<br />/NON - VEGETARIAN/
+                  </label>
+                </div>
+                <div class="radio-wrapper">
+                  <input
+                    type="radio"
+                    id="veg"
+                    name="dietary"
+                    value="vegetarian"
+                  />
+                  <label for="veg" class="radio-label">
+                    TÔI ĂN CHAY<br />/VEGETARIAN/
+                  </label>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="form-group guest-info" data-animate="fade-up">
+              <p class="guest-info-title">
+                Nếu bạn đến cùng bạn đồng hành <br />
+                hãy cho mình xin thông tin của họ nhé!
+              </p>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="guest-info"
+                  name="guest_info"
+                  placeholder="Điền họ tên người đi cùng"
+                />
+              </div>
+            </div>
+
+            <div class="form-group" data-animate="fade-up">
+              <select class="form-select" name="dietary">
+                <option value="" disabled selected>
+                  Bạn có lưu ý đặc biệt gì về thức ăn không?
+                </option>
+                <option value="Thực đơn thường">Thực đơn thường</option>
+                <option value="Thực đơn chay">Thực đơn chay</option>
+              </select>
+            </div>
+
+            <div class="form-group other" data-animate="fade-up">
+              <textarea
+                id="other"
+                name="other"
+                placeholder="Hướng dẫn về dị ứng"
+              ></textarea>
+            </div>
+
+            <div class="form-group" data-animate="fade-up">
+              <textarea
+                id="message"
+                name="wish"
+                placeholder="Bạn có lời chúc hay nhắn gửi gì đến Cô Dâu và Chú Rể không?"
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-btn" data-animate="fade-in-pulse">Xác nhận</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="countdown">
+        <div class="content" data-animate="fade-in">
+          <div class="divider" data-animate="rotate-bl--float">
+            <img class="" src="assets/images/divider_flower.png" alt="" />
+          </div>
+          <h2 class="title" data-animate="fade-up">Countdown</h2>
+          <div class="countdown-box">
+            <div class="time-box" data-animate="flip">
+              <div class="number" id="days">00</div>
+              <!-- <div class="label">Days</div> -->
+            </div>
+            <div class="time-box" data-animate="flip">
+              <div class="number" id="hours">00</div>
+              <!-- <div class="label">Hours</div> -->
+            </div>
+            <div class="time-box" data-animate="flip">
+              <div class="number" id="mins">00</div>
+              <!-- <div class="label">Mins</div> -->
+            </div>
+            <div class="time-box" data-animate="flip">
+              <div class="number" id="secs">00</div>
+              <!-- <div class="label">Secs</div> -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="end">
+        <div class="content" data-animate="fade-in">
+          <p class="text-main" data-animate="fade-up">
+            Cảm ơn bạn đã dành tình cảm cho chúng mình! Sự hiện diện của bạn
+            chính là món quà ý nghĩa nhất, và chúng mình vô cùng trân quý khi
+            được cùng bạn chia sẻ niềm hạnh phúc trong ngày trọng đại này.
+          </p>
+
+          <div class="thanks" data-animate="fade-in-pulse">Thank you</div>
+        </div>
+      </section>
+
+      <div class="music-box">
+        <div class="label">
+          <span>Ở đây có <br /> nhạc hay</span>
+        </div>
+        <div class="player" id="player-btn" aria-label="Play/Pause">
+          <img id="iconSvg" src="assets/images/cd.png" alt="Music Icon" />
+        </div>
+      </div>
+      <audio
+        id="audio"
+        preload="auto"
+        src="https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/music/Love%20Paradise%20-%20Kelly%20Chen%20(%20Lyrics%20).mp3"
+        loop
+        type="audio/mpeg"
+      ></audio>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/gsap-animations.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
-  <script>
-    document.getElementById("letter").addEventListener("click", () => {
-      window.location.href = "invitation.html";
-    });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="assets/js/gsap-animations.js"></script>
-  <script src="assets/js/letter.js"></script>
 </html>
